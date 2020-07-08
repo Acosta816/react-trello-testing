@@ -1,0 +1,11 @@
+language: node_js
+node_js: node
+cache:
+  directories:
+    - node_modules
+env:
+  - CI=true
+
+  # cache: directories: node_modules     is enabling caching of dependiencies in the node_modules folder, which leads to faster builds!
+  # env is for setting environmental variables. We set CI=true so when tests run, the system doesn't keep watching for changes in the source code and 
+  # rerun the tests which as you know is default behavior for the npm test script in "create-react-app" apps.
