@@ -2,10 +2,14 @@ language: node_js
 node_js: node
 cache:
   directories:
-    - node_modules
+  - node_modules
 env:
-  - CI=true
-
-  # cache: directories: node_modules     is enabling caching of dependiencies in the node_modules folder, which leads to faster builds!
-  # env is for setting environmental variables. We set CI=true so when tests run, the system doesn't keep watching for changes in the source code and 
-  # rerun the tests which as you know is default behavior for the npm test script in "create-react-app" apps.
+- CI=true
+deploy:
+  provider: heroku
+  api_key:
+    secure: XViVvUYMixLc17Qy5bDgGYQLdujJRjyEcGd9uJ3vXhj1U3SpZne412MS18uv33CuaVHHcfcOjS6cIABvg3EP3Khvm5Bt8uIVHQ0rHmAzkt8J8vgipHg8mm0wqLezZlesTUvmIWtqrJlrWAQNb382uB0T9+YPRNN7WHrNohzKKZogVYoWHYpxCkUt/BqrNMRrxpim0+N0kVS/V58BzydhwrBVmpYsWzWlLNUKHtMq4g9co4vL1w+0ucH+MTbFxUXbXKpq0LGvIjeLlrWKk8k3iQdQCEra5fJ1QrMvJrkMI2Fo3VgsIT9ijmpi8lZAeTK8wRtZVkq/J99uNFHrMnnY4FkXre8l32CUPgwAR9TlwoL9vS2N1Pf5FMpufqlAYzP6YKSxL81Pd4XaMvmPbjTn9IYKgaQdqXKSnLjtPhT7KgzMDS1JevRYKGZaxYIWJAjL9kccueCM2yH6IyDhep4tY/b7Mmy0K5lVVJuVSvNII3OuWdn6R4KXKDIVwlc7SnDuKWk96K4f+sERcHRl143eseCY5xYRb1w4NuJj4lr7b6GFzQAy15pdjHnlsyWPPqSMzMEPUQtRuATiH50DtEWJ56EVQKqPuShYqjIWp+AlG9slritGN4GoXKQnrPZClcHiaGFXWZnkKO44LcVPZ9wceEQzH3PYgs7AZuRwTExyRk8=
+  app: react-trello-testing
+  on:
+    repo: Acosta816/react-trello-testing
+  skip_cleanup: 'true'
